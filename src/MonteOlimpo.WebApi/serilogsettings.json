@@ -1,0 +1,36 @@
+{
+  "Serilog": {
+    "Using": [ "Serilog.Sinks.Console", "Serilog.Sinks.Elasticsearch" ],
+    "MinimumLevel": {
+      "Default": "Information",
+      "Override": {
+        "Microsoft": "Warning",
+        "System": "Warning"
+      }
+    },
+    "WriteTo": [
+      { "Name": "Console" },
+      {
+        "Name": "File",
+        "Args": { "path": "%TEMP%\\Logs\\serilog-configuration-sample.txt" }
+      },
+      {
+        "Name": "Elasticsearch",
+        "Options": {
+          "nodeUris": "https://ueov7jgzfo:sprddodkbp@marlons-first-sandbo-3270727562.us-west-2.bonsaisearch.net:443",
+          "indexFormat": "myapp-{0:yyyy.MM}",
+          "autoRegisterTemplate": true,
+          "inlineFields": true,
+          "autoRegisterTemplateVersion": "ESv6"
+
+        }
+      }
+    ],
+    "Enrich": [ "FromLogContext", "WithMachineName", "WithThreadId" ],
+    "Properties": {
+      "Application": "Sample"
+    }
+  }
+
+}
+

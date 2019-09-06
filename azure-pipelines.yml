@@ -1,0 +1,259 @@
+# ASP.NET Core (.NET Framework)
+# Build and test ASP.NET Core projects targeting the full .NET Framework.
+# Add steps that publish symbols, save build artifacts, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
+
+trigger:
+- master
+
+pool:
+  vmImage: 'windows-latest'
+
+variables:
+  solution: '**/*.sln'
+  buildPlatform: 'Any CPU'
+  buildConfiguration: 'Release'
+
+#Pack1 -------------------
+  #CoreException
+  #ExceptionHandler
+  #ExceptionHandler.Abstractions
+  #Filters
+  #Log  
+  #ExceptionHandler
+  #Extensions.Configuration
+  #Exception
+  #Swagger
+  #ApiBoot
+  Pack1Version: '1.0.1'
+  Pack1PushToNuget: false
+
+
+steps:
+- task: NuGetToolInstaller@1
+
+- task: NuGetCommand@2
+  inputs:
+    restoreSolution: '$(solution)'
+
+- task: SonarSource.sonarcloud.14d9cde6-c1da-4d55-aa01-2965cd301255.SonarCloudPrepare@1
+  displayName: 'Prepare analysis on SonarCloud'
+  inputs:
+    SonarCloud: 'https://sonarcloud.io/dashboard?id=mmarlonms_monteolimpo'
+    organization: mmarlonms
+    projectKey: 'mmarlonms_monteolimpo'
+    projectName: MonteOlimpo
+    extraProperties: |
+     # Additional properties that will be passed to the scanner, 
+     # Put one key=value per line, example:
+     # sonar.exclusions=**/*.bin
+
+- task: VSBuild@1
+  inputs:
+    solution: '$(solution)'
+    msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:DesktopBuildPackageLocation="$(build.artifactStagingDirectory)\WebApp.zip" /p:DeployIisAppPath="Default Web Site"'
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+
+- task: VSTest@2
+  inputs:
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+
+- task: SonarSource.sonarcloud.ce096e50-6155-4de8-8800-4221aaeed4a1.SonarCloudAnalyze@1
+  displayName: 'Run Code Analysis'
+
+- task: SonarSource.sonarcloud.38b27399-a642-40af-bb7d-9971f69712e8.SonarCloudPublish@1
+  displayName: 'Publish Quality Gate Result'
+
+
+  # Prepare publish files
+- task: DotNetCoreCLI@2
+  displayName: Prepare Publish Files
+  inputs:
+    command: publish
+    publishWebProjects: False
+    projects: '**/**/MonteOlimpo.*.csproj'
+    arguments: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)'
+    zipAfterPublish: False
+
+# Publish the artifacts
+- task: PublishBuildArtifacts@1
+  displayName: Publish Artifacts
+
+
+# Publish MonteOlimpo.Log to NuGet.org
+- task: DotNetCoreCLI@2
+  displayName: Pack MonteOlimpo.Log
+  condition: eq(variables['Pack1PushToNuget'], 'True')
+  inputs:
+    command: pack
+    packagesToPack: '**/**/MonteOlimpo.Log.csproj'
+    versioningScheme: byEnvVar
+    versionEnvVar: Pack1Version
+- task: NuGetCommand@2
+  displayName: Push MonteOlimpo.Log to NuGet.org
+  condition: eq(variables['Pack1PushToNuget'], 'True')
+  continueOnError: True
+  inputs:
+    command: push
+    nuGetFeedType: external
+    packagesToPush: '$(build.artifactStagingDirectory)/MonteOlimpo.Log.*.nupkg'
+    publishFeedCredentials: NuggetConnect
+
+
+    # Publish MonteOlimpo.CoreException to NuGet.org
+- task: DotNetCoreCLI@2
+  displayName: Pack MonteOlimpo.CoreException
+  condition: eq(variables['Pack1PushToNuget'], 'True')
+  inputs:
+    command: pack
+    packagesToPack: '**/**/MonteOlimpo.CoreException.csproj'
+    versioningScheme: byEnvVar
+    versionEnvVar: Pack1Version
+- task: NuGetCommand@2
+  displayName: Push MonteOlimpo.CoreException to NuGet.org
+  condition: eq(variables['Pack1PushToNuget'], 'True')
+  continueOnError: True
+  inputs:
+    command: push
+    nuGetFeedType: external
+    packagesToPush: '$(build.artifactStagingDirectory)/MonteOlimpo.CoreException.*.nupkg'
+    publishFeedCredentials: NuggetConnect
+
+    # Publish MonteOlimpo.ExceptionHandler.Abstraction to NuGet.org
+- task: DotNetCoreCLI@2
+  displayName: Pack MonteOlimpo.ExceptionHandler.Abstraction
+  condition: eq(variables['Pack1PushToNuget'], 'True')
+  inputs:
+    command: pack
+    packagesToPack: '**/**/MonteOlimpo.ExceptionHandler.Abstraction.csproj'
+    versioningScheme: byEnvVar
+    versionEnvVar: Pack1Version
+- task: NuGetCommand@2
+  displayName: Push MonteOlimpo.ExceptionHandler.Abstraction to NuGet.org
+  condition: eq(variables['Pack1PushToNuget'], 'True')
+  continueOnError: True
+  inputs:
+    command: push
+    nuGetFeedType: external
+    packagesToPush: '$(build.artifactStagingDirectory)/MonteOlimpo.ExceptionHandler.Abstraction.*.nupkg'
+    publishFeedCredentials: NuggetConnect
+
+    # Publish MonteOlimpo.Filters to NuGet.org
+- task: DotNetCoreCLI@2
+  displayName: Pack MonteOlimpo.Filters
+  condition: eq(variables['Pack1PushToNuget'], 'True')
+  inputs:
+    command: pack
+    packagesToPack: '**/**/MonteOlimpo.Filters.csproj'
+    versioningScheme: byEnvVar
+    versionEnvVar: Pack1Version
+- task: NuGetCommand@2
+  displayName: Push MonteOlimpo.Filters to NuGet.org
+  condition: eq(variables['Pack1PushToNuget'], 'True')
+  continueOnError: True
+  inputs:
+    command: push
+    nuGetFeedType: external
+    packagesToPush: '$(build.artifactStagingDirectory)/MonteOlimpo.Filters.*.nupkg'
+    publishFeedCredentials: NuggetConnect
+
+    # Publish MonteOlimpo.ExceptionHandler to NuGet.org
+- task: DotNetCoreCLI@2
+  displayName: Pack MonteOlimpo.ExceptionHandler
+  condition: eq(variables['Pack1PushToNuget'], 'True')
+  inputs:
+    command: pack
+    packagesToPack: '**/**/MonteOlimpo.ExceptionHandler.csproj'
+    versioningScheme: byEnvVar
+    versionEnvVar: Pack1Version
+- task: NuGetCommand@2
+  displayName: Push MonteOlimpo.ExceptionHandler to NuGet.org
+  condition: eq(variables['Pack1PushToNuget'], 'True')
+  continueOnError: True
+  inputs:
+    command: push
+    nuGetFeedType: external
+    packagesToPush: '$(build.artifactStagingDirectory)/MonteOlimpo.ExceptionHandler.*.nupkg'
+    publishFeedCredentials: NuggetConnect
+
+
+    # Publish MonteOlimpo.Extensions to NuGet.org
+- task: DotNetCoreCLI@2
+  displayName: Pack MonteOlimpo.Extensions
+  condition: eq(variables['Pack1PushToNuget'], 'True')
+  inputs:
+    command: pack
+    packagesToPack: '**/**/MonteOlimpo.Extensions.csproj'
+    versioningScheme: byEnvVar
+    versionEnvVar: Pack1Version
+- task: NuGetCommand@2
+  displayName: Push MonteOlimpo.Extensions to NuGet.org
+  condition: eq(variables['Pack1PushToNuget'], 'True')
+  continueOnError: True
+  inputs:
+    command: push
+    nuGetFeedType: external
+    packagesToPush: '$(build.artifactStagingDirectory)/MonteOlimpo.Extensions.*.nupkg'
+    publishFeedCredentials: NuggetConnect
+
+
+    # Publish MonteOlimpo.Exception to NuGet.org
+- task: DotNetCoreCLI@2
+  displayName: Pack MonteOlimpo.Exception
+  condition: eq(variables['Pack1PushToNuget'], 'True')
+  inputs:
+    command: pack
+    packagesToPack: '**/**/MonteOlimpo.Exception.csproj'
+    versioningScheme: byEnvVar
+    versionEnvVar: Pack1Version
+- task: NuGetCommand@2
+  displayName: Push MonteOlimpo.Exception to NuGet.org
+  condition: eq(variables['Pack1PushToNuget'], 'True')
+  continueOnError: True
+  inputs:
+    command: push
+    nuGetFeedType: external
+    packagesToPush: '$(build.artifactStagingDirectory)/MonteOlimpo.Exception.*.nupkg'
+    publishFeedCredentials: NuggetConnect
+
+
+    # Publish MonteOlimpo.Swagger to NuGet.org
+- task: DotNetCoreCLI@2
+  displayName: Pack MonteOlimpo.Swagger
+  condition: eq(variables['Pack1PushToNuget'], 'True')
+  inputs:
+    command: pack
+    packagesToPack: '**/**/MonteOlimpo.Swagger.csproj'
+    versioningScheme: byEnvVar
+    versionEnvVar: Pack1Version
+- task: NuGetCommand@2
+  displayName: Push MonteOlimpo.Swagger to NuGet.org
+  condition: eq(variables['Pack1PushToNuget'], 'True')
+  continueOnError: True
+  inputs:
+    command: push
+    nuGetFeedType: external
+    packagesToPush: '$(build.artifactStagingDirectory)/MonteOlimpo.Swagger.*.nupkg'
+    publishFeedCredentials: NuggetConnect
+
+
+    # Publish MonteOlimpo.ApiBoot to NuGet.org
+- task: DotNetCoreCLI@2
+  displayName: Pack MonteOlimpo.ApiBoot
+  condition: eq(variables['Pack1PushToNuget'], 'True')
+  inputs:
+    command: pack
+    packagesToPack: '**/**/MonteOlimpo.ApiBoot.csproj'
+    versioningScheme: byEnvVar
+    versionEnvVar: Pack1Version
+- task: NuGetCommand@2
+  displayName: Push MonteOlimpo.ApiBoot to NuGet.org
+  condition: eq(variables['Pack1PushToNuget'], 'True')
+  continueOnError: True
+  inputs:
+    command: push
+    nuGetFeedType: external
+    packagesToPush: '$(build.artifactStagingDirectory)/MonteOlimpo.ApiBoot.*.nupkg'
+    publishFeedCredentials: NuggetConnect
