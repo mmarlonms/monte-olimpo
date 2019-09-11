@@ -5,7 +5,7 @@ namespace MonteOlimpo.Data
 {
    public class MonteOlimpoContext : DbContext
     {
-        public DbSet<Good> Good { get; set; }
+        public DbSet<God> God { get; set; }
 
         public MonteOlimpoContext(DbContextOptions<MonteOlimpoContext> options) :
            base(options)
@@ -14,7 +14,7 @@ namespace MonteOlimpo.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Good>().HasKey(c => c.Id);
+            modelBuilder.Entity<God>().HasKey(c => c.Id);
         }
     }
 }

@@ -10,8 +10,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace MonteOlimpo.Data.Migrations
 {
     [DbContext(typeof(MonteOlimpoContext))]
-    [Migration("20190906200355_inicial")]
-    partial class inicial
+    [Migration("20190911144548_incial")]
+    partial class incial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -21,7 +21,7 @@ namespace MonteOlimpo.Data.Migrations
                 .HasAnnotation("ProductVersion", "2.2.6-servicing-10079")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
-            modelBuilder.Entity("MonteOlimpo.Domain.Models.Good", b =>
+            modelBuilder.Entity("MonteOlimpo.Domain.Models.God", b =>
                 {
                     b.Property<int?>("Id")
                         .ValueGeneratedOnAdd();
@@ -32,7 +32,7 @@ namespace MonteOlimpo.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Good");
+                    b.ToTable("God");
                 });
 #pragma warning restore 612, 618
         }

@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.489
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonteOlimpo.WebApi", "MonteOlimpo.WebApi\MonteOlimpo.WebApi.csproj", "{899D01C7-F1BB-487D-8ECD-A7C505EA508A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MonteOlimpo.WebApi", "MonteOlimpo.WebApi\MonteOlimpo.WebApi.csproj", "{899D01C7-F1BB-487D-8ECD-A7C505EA508A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonteOlimpo.Data", "MonteOlimpo.Data\MonteOlimpo.Data.csproj", "{EF70F07E-9E9F-4F8F-A102-89A1526D2FF3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MonteOlimpo.Data", "MonteOlimpo.Data\MonteOlimpo.Data.csproj", "{EF70F07E-9E9F-4F8F-A102-89A1526D2FF3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonteOlimpo.Repository", "MonteOlimpo.Repository\MonteOlimpo.Repository.csproj", "{E12B0532-B589-4F35-A186-A0163C54F8B6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MonteOlimpo.Repository", "MonteOlimpo.Repository\MonteOlimpo.Repository.csproj", "{E12B0532-B589-4F35-A186-A0163C54F8B6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonteOlimpo.Domain", "MonteOlimpo.Domain\MonteOlimpo.Domain.csproj", "{F4B48ECD-3883-45A4-AC69-981FC609E0C7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MonteOlimpo.Domain", "MonteOlimpo.Domain\MonteOlimpo.Domain.csproj", "{F4B48ECD-3883-45A4-AC69-981FC609E0C7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

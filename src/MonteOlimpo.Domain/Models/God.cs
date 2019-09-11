@@ -2,7 +2,7 @@
 
 namespace MonteOlimpo.Domain.Models
 {
-    public class Good : ModelBase
+    public class God : ModelBase
     {
         public string Nome { get; set; }
 

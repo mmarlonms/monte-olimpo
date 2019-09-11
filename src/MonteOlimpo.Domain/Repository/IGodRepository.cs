@@ -3,7 +3,7 @@ using MonteOlimpo.Domain.Models;
 
 namespace MonteOlimpo.Domain.Repository
 {
-    public interface IGoodRepository : IRepository<Good>
+    public interface IGodRepository : IRepository<God>
     {
     }
 }

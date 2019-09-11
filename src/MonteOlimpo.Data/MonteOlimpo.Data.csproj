@@ -6,7 +6,6 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.2.6" />
-    <PackageReference Include="MonteOlimpo.Base.Core.Data" Version="1.0.0" />
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="2.2.4" />
   </ItemGroup>
 

@@ -19,7 +19,7 @@ namespace MonteOlimpo.Data.Migrations
                 .HasAnnotation("ProductVersion", "2.2.6-servicing-10079")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
-            modelBuilder.Entity("MonteOlimpo.Domain.Models.Good", b =>
+            modelBuilder.Entity("MonteOlimpo.Domain.Models.God", b =>
                 {
                     b.Property<int?>("Id")
                         .ValueGeneratedOnAdd();
@@ -30,7 +30,7 @@ namespace MonteOlimpo.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Good");
+                    b.ToTable("God");
                 });
 #pragma warning restore 612, 618
         }

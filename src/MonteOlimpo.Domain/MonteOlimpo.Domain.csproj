@@ -5,7 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MonteOlimpo.Base.Core.Domain" Version="1.0.0" />
+    <PackageReference Include="MonteOlimpo.Base.Core.Domain" Version="1.0.4" />
+    <PackageReference Include="MonteOlimpo.Base.Core.Specification" Version="1.0.4" />
   </ItemGroup>
 
 </Project>

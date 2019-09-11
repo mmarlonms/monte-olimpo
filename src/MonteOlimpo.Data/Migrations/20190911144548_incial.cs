@@ -3,12 +3,12 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace MonteOlimpo.Data.Migrations
 {
-    public partial class inicial : Migration
+    public partial class incial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Good",
+                name: "God",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -18,14 +18,14 @@ namespace MonteOlimpo.Data.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Good", x => x.Id);
+                    table.PrimaryKey("PK_God", x => x.Id);
                 });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Good");
+                name: "God");
         }
     }
 }

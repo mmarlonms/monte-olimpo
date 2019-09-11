@@ -5,9 +5,9 @@ using MonteOlimpo.Domain.Repository;
 
 namespace MonteOlimpo.Repository
 {
-    public class GoodRepository : BaseRepository<Good>, IGoodRepository
+    public class GodRepository : BaseRepository<God>, IGodRepository
     {
-        public GoodRepository(IUnitOfWork unitOfWork) : base(unitOfWork)
+        public GodRepository(IUnitOfWork unitOfWork) : base(unitOfWork)
         {
         }
     }

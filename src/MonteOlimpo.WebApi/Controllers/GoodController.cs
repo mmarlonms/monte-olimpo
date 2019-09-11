@@ -1,38 +1,87 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using MonteOlimpo.ApiBoot;
+using MonteOlimpo.Base.ApiBoot;
 using MonteOlimpo.Domain.Models;
 using MonteOlimpo.Domain.Repository;
+using MonteOlimpo.Domain.Specifications;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace MonteOlimpo.WebApi.Controllers
 {
     [ApiController]
-    public class GoodController : ApiBaseController
+    public class GodController : ApiBaseController
     {
-        private readonly IGoodRepository deusRepository;
+        private readonly IGodRepository godRepository;
 
-        public GoodController(IGoodRepository deusRepository)
+        public GodController(IGodRepository godRepository)
         {
-            this.deusRepository = deusRepository;
+            this.godRepository = godRepository;
         }
 
-        [HttpGet("ObterTodosOsDeusesDoMonteOlimpo")]
-        public List<Good> ObterTodosOsDeusesDoMonteOlimpo()
+        [HttpGet("GetAllGods")]
+        public List<God> GetAllGods()
         {
-            return this.deusRepository.List().ToList();
+            return this.godRepository.List().ToList();
         }
 
-        [HttpPost("CriarNovoDeus")]
-        public void CriarNovoDeusDoMonteOlimpo(Good deus)
+
+        [HttpGet("GetGod/{id}")]
+        public God GetGod(int id)
         {
-            this.deusRepository.Add(deus);
+            return this.godRepository.GetById(id);
         }
 
-        [HttpPut("ModificarDeusDoMonteOlimpo")]
-        public void ModificarDeusDoMonteOlimpo(Good deus)
+        [HttpPost("CreateGod")]
+        public void CreateGod(God deus)
         {
-            this.deusRepository.Update(deus);
+            this.godRepository.Add(deus);
         }
+
+        [HttpPut("UpdateGod")]
+        public void UpdateGord(God deus)
+        {
+            this.godRepository.Update(deus);
+        }
+
+        /// <summary>
+        ///     Specification Sample
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("GodWhithMoreTemYeas")]
+        public List<God> GodWhithMoreTemYeas()
+        {
+            return this.godRepository.ListBySpecfication(GodSpecification.GodWithMoreTenYears).ToList();
+        }
+
+        /// <summary>
+        ///     Specification Sample with AND
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("GodWhithMoreTemYeasAndPairAge")]
+        public List<God> GodWhithMoreTemYeasAndPairAge()
+        {
+            return this.godRepository.ListBySpecfication(GodSpecification.GodWithMoreTenYears.And(GodSpecification.GodWithPairAge)).ToList();
+        }
+
+        /// <summary>
+        ///     Specification Sample with OR
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("GodWhithMoreTemYeasOrGodWithNameMercury")]
+        public List<God> GodWhithMoreTemYeasOrPairAge()
+        {
+            return this.godRepository.ListBySpecfication(GodSpecification.GodWithMoreTenYears.Or(GodSpecification.GodWithNameMercury)).ToList();
+        }
+
+        /// <summary>
+        ///     Specification Sample with AND and OR
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("GodWhithMoreTemYeasAndPairAgeOrGodWithNameMercury")]
+        public List<God> GodWhithMoreTemYeasAndPairAgeOrGodWithNameMercury()
+        {
+            return this.godRepository.ListBySpecfication(((GodSpecification.GodWithMoreTenYears.And(GodSpecification.GodWithPairAge)).Or(GodSpecification.GodWithNameMercury))).ToList();
+        }
+
     }
 }

@@ -1,9 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
+﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using MonteOlimpo.ApiBoot;
-using MonteOlimpo.Base.Core.Data.UnitOfWork;
-using MonteOlimpo.Base.Core.Domain.UnitOfWork;
+using MonteOlimpo.Base.ApiBoot;
+using MonteOlimpo.Base.Core.CrossCutting;
 using MonteOlimpo.Data;
 using MonteOlimpo.Repository;
 using System.Collections.Generic;
@@ -22,17 +20,12 @@ namespace MonteOlimpo.WebApi
         {
             base.ConfigureServices(services);
 
-            services.AddEntityFrameworkNpgsql()
-               .AddDbContext<MonteOlimpoContext>(
-                   options => options.UseNpgsql(
-                       Configuration.GetConnectionString(nameof(MonteOlimpoContext))));
-
-            services.AddScoped<IUnitOfWork, UnitOfWork<MonteOlimpoContext>>();
+            services.RegisterMonteOlimpoDataBase<MonteOlimpoContext>(Configuration);
         }
 
         protected override IEnumerable<Assembly> GetAditionalAssemblies()
         {
-            yield return typeof(GoodRepository).Assembly;
+            yield return typeof(GodRepository).Assembly;
         }
     }
 }
