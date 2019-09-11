@@ -1,6 +1,7 @@
 [![Build Status](https://dev.azure.com/MMarlonMs/MonteOlimpo/_apis/build/status/mmarlonms.monte-olimpo)](https://dev.azure.com/MMarlonMs/MonteOlimpo/_build/latest?definitionId=1)
 
-![Logo](https://github.com/mmarlonms/monte-olimpo/blob/master/docs/monte-olimpo-logo.png)
+<img src="https://github.com/mmarlonms/monte-olimpo/blob/master/docs/monte-olimpo-logo.png" width="70" height="70">
+
 # Monte Olimpo Api - [Projeto em Desenvolvimento]
 Exemplo de aplicação que utiliza a suite Monte Olimpo.
 
