@@ -25,6 +25,7 @@
     <ProjectReference Include="..\MonteOlimpo.Data\MonteOlimpo.Data.csproj" />
     <ProjectReference Include="..\MonteOlimpo.Domain\MonteOlimpo.Domain.csproj" />
     <ProjectReference Include="..\MonteOlimpo.Repository\MonteOlimpo.Repository.csproj" />
+    <ProjectReference Include="..\MonteOlimpo.Service\MonteOlimpo.Service.csproj" />
   </ItemGroup>
 
   <ItemGroup>

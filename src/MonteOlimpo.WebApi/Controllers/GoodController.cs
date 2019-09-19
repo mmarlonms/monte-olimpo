@@ -1,8 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MonteOlimpo.Base.ApiBoot;
 using MonteOlimpo.Domain.Models;
-using MonteOlimpo.Domain.Repository;
-using MonteOlimpo.Domain.Specifications;
+using MonteOlimpo.Domain.Service;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -11,77 +10,81 @@ namespace MonteOlimpo.WebApi.Controllers
     [ApiController]
     public class GodController : ApiBaseController
     {
-        private readonly IGodRepository godRepository;
+        private readonly IGodService godService;
 
-        public GodController(IGodRepository godRepository)
+        public GodController(IGodService godService)
         {
-            this.godRepository = godRepository;
+            this.godService = godService;
         }
 
         [HttpGet("GetAllGods")]
         public List<God> GetAllGods()
         {
-            return this.godRepository.List().ToList();
+            return this.godService.GetAll().ToList();
         }
-
 
         [HttpGet("GetGod/{id}")]
         public God GetGod(int id)
         {
-            return this.godRepository.GetById(id);
+            return this.godService.GetByID(id);
         }
 
         [HttpPost("CreateGod")]
         public void CreateGod(God deus)
         {
-            this.godRepository.Add(deus);
+            this.godService.Create(deus);
         }
 
         [HttpPut("UpdateGod")]
         public void UpdateGord(God deus)
         {
-            this.godRepository.Update(deus);
+            this.godService.Update(deus);
+        }
+
+        [HttpDelete("DelteGod")]
+        public void DelteGod(int id)
+        {
+            this.godService.Delete(id);
         }
 
         /// <summary>
         ///     Specification Sample
         /// </summary>
         /// <returns></returns>
-        [HttpGet("GodWhithMoreTemYeas")]
-        public List<God> GodWhithMoreTemYeas()
+        [HttpGet("ListGodsWithMoreTemYears")]
+        public List<God> ListGodsWithMoreTemYears()
         {
-            return this.godRepository.ListBySpecfication(GodSpecification.GodWithMoreTenYears).ToList();
+            return this.godService.ListGodsWithMoreTemYears().ToList();
         }
 
         /// <summary>
         ///     Specification Sample with AND
         /// </summary>
         /// <returns></returns>
-        [HttpGet("GodWhithMoreTemYeasAndPairAge")]
-        public List<God> GodWhithMoreTemYeasAndPairAge()
+        [HttpGet("ListGodsWithMoreTemYearsAndPairAge")]
+        public List<God> ListGodsWithMoreTemYearsAndPairAge()
         {
-            return this.godRepository.ListBySpecfication(GodSpecification.GodWithMoreTenYears.And(GodSpecification.GodWithPairAge)).ToList();
+            return this.godService.ListGodsWithMoreTemYearsAndPairAge().ToList();
         }
 
         /// <summary>
         ///     Specification Sample with OR
         /// </summary>
         /// <returns></returns>
-        [HttpGet("GodWhithMoreTemYeasOrGodWithNameMercury")]
-        public List<God> GodWhithMoreTemYeasOrPairAge()
+        [HttpGet("ListGodsWithMoreTemYearsOrGodWithNameMercury")]
+        public List<God> ListGodsWithMoreTemYearsOrGodWithNameMercury()
         {
-            return this.godRepository.ListBySpecfication(GodSpecification.GodWithMoreTenYears.Or(GodSpecification.GodWithNameMercury)).ToList();
+            return this.godService.ListGodsWithMoreTemYearsOrGodWithNameMercury().ToList();
         }
 
         /// <summary>
         ///     Specification Sample with AND and OR
         /// </summary>
         /// <returns></returns>
-        [HttpGet("GodWhithMoreTemYeasAndPairAgeOrGodWithNameMercury")]
-        public List<God> GodWhithMoreTemYeasAndPairAgeOrGodWithNameMercury()
+        [HttpGet("ListGodsWithMoreTemYearsAndPairAgeOrGodWithNameMercury")]
+        public List<God> ListGodsWithMoreTemYearsAndPairAgeOrGodWithNameMercury()
         {
-            return this.godRepository.ListBySpecfication(((GodSpecification.GodWithMoreTenYears.And(GodSpecification.GodWithPairAge)).Or(GodSpecification.GodWithNameMercury))).ToList();
+            return this.godService.ListGodsWithMoreTemYearsAndPairAgeOrGodWithNameMercury().ToList();
         }
-
     }
 }
