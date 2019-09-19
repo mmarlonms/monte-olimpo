@@ -32,7 +32,6 @@ namespace MonteOlimpo.Test
             Assert.NotNull(response.Id);
         }
 
-
         [Fact]
         public void UpdateGod_ValidObject()
         {
@@ -109,8 +108,6 @@ namespace MonteOlimpo.Test
             //Assert
             Assert.Empty(this.GodService.ListGodsWithMoreTemYears());
         }
-
-
 
         [Fact]
         public void ListGodsWithMoreTemYearsAndPairAge_OneOrMoreGods()
