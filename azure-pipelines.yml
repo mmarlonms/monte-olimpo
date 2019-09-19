@@ -43,7 +43,7 @@ steps:
 
 - task: CopyFiles@2
   inputs:
-    SourceFolder: '$(build.SourcesDirectory)/TestResults'
+    SourceFolder: 'd:/a/_temp/TestResults'
     Contents: '**'
     TargetFolder: '$(Agent.BuildDirectory)/TestResults'
     
