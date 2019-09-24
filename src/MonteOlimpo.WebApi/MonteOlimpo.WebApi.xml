@@ -4,25 +4,25 @@
         <name>MonteOlimpo.WebApi</name>
     </assembly>
     <members>
-        <member name="M:MonteOlimpo.WebApi.Controllers.GodController.GodWhithMoreTemYeas">
+        <member name="M:MonteOlimpo.WebApi.Controllers.GodController.ListGodsWithMoreTemYears">
             <summary>
                 Specification Sample
             </summary>
             <returns></returns>
         </member>
-        <member name="M:MonteOlimpo.WebApi.Controllers.GodController.GodWhithMoreTemYeasAndPairAge">
+        <member name="M:MonteOlimpo.WebApi.Controllers.GodController.ListGodsWithMoreTemYearsAndPairAge">
             <summary>
                 Specification Sample with AND
             </summary>
             <returns></returns>
         </member>
-        <member name="M:MonteOlimpo.WebApi.Controllers.GodController.GodWhithMoreTemYeasOrPairAge">
+        <member name="M:MonteOlimpo.WebApi.Controllers.GodController.ListGodsWithMoreTemYearsOrGodWithNameMercury">
             <summary>
                 Specification Sample with OR
             </summary>
             <returns></returns>
         </member>
-        <member name="M:MonteOlimpo.WebApi.Controllers.GodController.GodWhithMoreTemYeasAndPairAgeOrGodWithNameMercury">
+        <member name="M:MonteOlimpo.WebApi.Controllers.GodController.ListGodsWithMoreTemYearsAndPairAgeOrGodWithNameMercury">
             <summary>
                 Specification Sample with AND and OR
             </summary>

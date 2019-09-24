@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MonteOlimpo.Base.ApiBoot;
+using MonteOlimpo.Base.Core.Validations.ValidationsHelpers;
 using MonteOlimpo.Domain.Models;
 using MonteOlimpo.Domain.Service;
 using System.Collections.Generic;
@@ -32,12 +33,16 @@ namespace MonteOlimpo.WebApi.Controllers
         [HttpPost("CreateGod")]
         public void CreateGod(God deus)
         {
+            ValidationHelper.ThrowValidationExceptionIfNotValid(deus);
+
             this.godService.Create(deus);
         }
 
         [HttpPut("UpdateGod")]
         public void UpdateGord(God deus)
         {
+            ValidationHelper.ThrowValidationExceptionIfNotValid(deus);
+
             this.godService.Update(deus);
         }
 
