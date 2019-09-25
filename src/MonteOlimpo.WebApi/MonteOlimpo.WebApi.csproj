@@ -20,6 +20,7 @@
     <PackageReference Include="MonteOlimpo.Base.Core.CrossCutting" Version="1.0.0" />
     <PackageReference Include="MonteOlimpo.Base.Core.Validations" Version="1.0.1" />
     <PackageReference Include="MonteOlimpo.Base.Extensions" Version="1.0.4" />
+    <PackageReference Include="Serilog.Sinks.ElasticSearch" Version="8.0.0" />
   </ItemGroup>
 
   <ItemGroup>

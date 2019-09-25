@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using MonteOlimpo.Base.ApiBoot;
 using MonteOlimpo.Base.Core.Validations.ValidationsHelpers;
 using MonteOlimpo.Domain.Models;
@@ -12,10 +13,12 @@ namespace MonteOlimpo.WebApi.Controllers
     public class GodController : ApiBaseController
     {
         private readonly IGodService godService;
+        private readonly ILogger<GodController> logger;
 
-        public GodController(IGodService godService)
+        public GodController(IGodService godService, ILogger<GodController> logger)
         {
             this.godService = godService;
+            this.logger = logger;
         }
 
         [HttpGet("GetAllGods")]

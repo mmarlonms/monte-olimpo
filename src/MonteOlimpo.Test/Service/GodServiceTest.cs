@@ -46,7 +46,7 @@ namespace MonteOlimpo.Test
 
             godInserted.Idade = 15;
             godInserted.Nome = "Afrodite";
-   
+
             //Act
             var godUpdated = this.GodService.Update(godInserted);
 
@@ -85,7 +85,7 @@ namespace MonteOlimpo.Test
                 Nome = "Zeus"
             };
 
-            var godInserted = this.GodService.Create(god);
+            this.GodService.Create(god);
 
             //Act
             //Assert
@@ -102,7 +102,7 @@ namespace MonteOlimpo.Test
                 Nome = "Zeus"
             };
 
-            var godInserted = this.GodService.Create(god);
+            this.GodService.Create(god);
 
             //Act
             //Assert
@@ -119,7 +119,7 @@ namespace MonteOlimpo.Test
                 Nome = "Zeus"
             };
 
-            var godInserted = this.GodService.Create(god);
+            this.GodService.Create(god);
 
             //Act
             //Assert
@@ -136,7 +136,7 @@ namespace MonteOlimpo.Test
                 Nome = "Zeus"
             };
 
-            var godInserted = this.GodService.Create(god);
+            this.GodService.Create(god);
 
             //Act
             //Assert
@@ -159,12 +159,12 @@ namespace MonteOlimpo.Test
                 Nome = "Mercurio"
             };
 
-            var godInserted = this.GodService.Create(god);
-            var godInserted2 = this.GodService.Create(god2);
+            this.GodService.Create(god);
+            this.GodService.Create(god2);
 
             //Act
             //Assert
-            Assert.Equal(2,this.GodService.ListGodsWithMoreTemYearsOrGodWithNameMercury().Count);
+            Assert.Equal(2, this.GodService.ListGodsWithMoreTemYearsOrGodWithNameMercury().Count);
         }
 
         [Fact]
@@ -177,7 +177,7 @@ namespace MonteOlimpo.Test
                 Nome = "Zeus"
             };
 
-            var godInserted = this.GodService.Create(god);
+            this.GodService.Create(god);
 
             //Act
             //Assert
@@ -226,7 +226,7 @@ namespace MonteOlimpo.Test
                 Nome = "Zeus"
             };
 
-            var godInserted = this.GodService.Create(god);
+            this.GodService.Create(god);
 
             //Act
             //Assert
