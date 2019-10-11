@@ -2,7 +2,7 @@
 
 <img src="https://github.com/mmarlonms/monte-olimpo/blob/master/docs/monte-olimpo-logo.png" width="70" height="70">
 
-# Monte Olimpo Api - [Projeto em Desenvolvimento]
+# Monte Olimpo - [Projeto em Desenvolvimento]
 Exemplo de aplicação que utiliza a suite Monte Olimpo.
 
 
