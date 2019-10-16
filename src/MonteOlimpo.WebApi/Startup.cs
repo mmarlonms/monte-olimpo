@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using MonteOlimpo.Base.ApiBoot;
 using MonteOlimpo.Base.Core.CrossCutting;
@@ -22,6 +24,13 @@ namespace MonteOlimpo.WebApi
             base.ConfigureServices(services);
 
             services.RegisterMonteOlimpoDataBase<MonteOlimpoContext>(Configuration);
+        }
+
+        public override void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        {
+            app.UseCors(option => option.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+            base.Configure(app, env);
+
         }
 
         protected override IEnumerable<Assembly> GetAditionalAssemblies()
