@@ -34,11 +34,11 @@ namespace MonteOlimpo.WebApi.Controllers
         }
 
         [HttpPost("CreateGod")]
-        public void CreateGod(God deus)
+        public God CreateGod(God deus)
         {
             ValidationHelper.ThrowValidationExceptionIfNotValid(deus);
 
-            this.godService.Create(deus);
+            return this.godService.Create(deus);
         }
 
         [HttpPut("UpdateGod")]
