@@ -2,8 +2,10 @@
 using Microsoft.Extensions.Logging;
 using MonteOlimpo.Base.ApiBoot;
 using MonteOlimpo.Base.Core.Validations.ValidationsHelpers;
+using MonteOlimpo.Domain.Exception;
 using MonteOlimpo.Domain.Models;
 using MonteOlimpo.Domain.Service;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -31,6 +33,18 @@ namespace MonteOlimpo.WebApi.Controllers
         public God GetGod(int id)
         {
             return this.godService.GetByID(id);
+        }
+
+        [HttpGet("GetCoreException")]
+        public God GetCoreException()
+        {
+            throw new GodCoreException(GodCoreError.SampleError);
+        }
+
+        [HttpGet("GetException")]
+        public God GetException()
+        {
+            throw new Exception("Sample");
         }
 
         [HttpPost("CreateGod")]
