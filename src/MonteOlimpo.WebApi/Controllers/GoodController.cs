@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using MonteOlimpo.Base.ApiBoot;
 using MonteOlimpo.Base.Core.Validations.ValidationsHelpers;
@@ -29,6 +30,7 @@ namespace MonteOlimpo.WebApi.Controllers
             return this.godService.GetAll().ToList();
         }
 
+        [Authorize]
         [HttpGet("GetGod/{id}")]
         public God GetGod(int id)
         {
@@ -63,6 +65,7 @@ namespace MonteOlimpo.WebApi.Controllers
             this.godService.Update(deus);
         }
 
+        [Authorize(Roles = "admin")]
         [HttpDelete("DelteGod")]
         public void DelteGod(int id)
         {

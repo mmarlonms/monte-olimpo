@@ -17,6 +17,7 @@
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.9.5" />
     <PackageReference Include="MonteOlimpo.Base.ApiBoot" Version="1.0.5" />
+    <PackageReference Include="MonteOlimpo.Base.Authentication" Version="1.0.1" />
     <PackageReference Include="MonteOlimpo.Base.Core.CrossCutting" Version="1.0.0" />
     <PackageReference Include="MonteOlimpo.Base.Core.Validations" Version="1.0.1" />
     <PackageReference Include="MonteOlimpo.Base.Extensions" Version="1.0.4" />

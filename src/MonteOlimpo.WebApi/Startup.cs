@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using MonteOlimpo.Base.ApiBoot;
+using MonteOlimpo.Base.Authentication;
 using MonteOlimpo.Base.Core.CrossCutting;
 using MonteOlimpo.Data;
 using MonteOlimpo.Repository;
@@ -22,13 +23,14 @@ namespace MonteOlimpo.WebApi
         public override void ConfigureServices(IServiceCollection services)
         {
             base.ConfigureServices(services);
-
+            services.AddJWTAuthenticationClient(Configuration.GetSection("TokenConfigurations").Get<TokenConfigurations>());
             services.RegisterMonteOlimpoDataBase<MonteOlimpoContext>(Configuration);
         }
 
         public override void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             app.UseCors(option => option.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+            app.UseAuthentication();
             base.Configure(app, env);
 
         }
