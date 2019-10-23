@@ -23,7 +23,9 @@ namespace MonteOlimpo.WebApi
         public override void ConfigureServices(IServiceCollection services)
         {
             base.ConfigureServices(services);
+            //ADD autenticação via JWT
             services.AddJWTAuthenticationClient(Configuration.GetSection("TokenConfigurations").Get<TokenConfigurations>());
+            //Registra data base
             services.RegisterMonteOlimpoDataBase<MonteOlimpoContext>(Configuration);
         }
 
