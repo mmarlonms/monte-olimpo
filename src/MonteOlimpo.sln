@@ -11,9 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MonteOlimpo.Repository", "M
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MonteOlimpo.Domain", "MonteOlimpo.Domain\MonteOlimpo.Domain.csproj", "{F4B48ECD-3883-45A4-AC69-981FC609E0C7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonteOlimpo.Test", "MonteOlimpo.Test\MonteOlimpo.Test.csproj", "{8359366F-1492-43ED-9C81-97E771791C91}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MonteOlimpo.Test", "MonteOlimpo.Test\MonteOlimpo.Test.csproj", "{8359366F-1492-43ED-9C81-97E771791C91}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonteOlimpo.Service", "MonteOlimpo.Service\MonteOlimpo.Service.csproj", "{DC7FE1FB-AC8B-4036-BFA2-C0E41546094C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MonteOlimpo.Service", "MonteOlimpo.Service\MonteOlimpo.Service.csproj", "{DC7FE1FB-AC8B-4036-BFA2-C0E41546094C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

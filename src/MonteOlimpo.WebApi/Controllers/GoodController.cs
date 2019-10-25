@@ -50,18 +50,14 @@ namespace MonteOlimpo.WebApi.Controllers
         }
 
         [HttpPost("CreateGod")]
-        public God CreateGod(God deus)
+        public IActionResult CreateGod(God deus)
         {
-            ValidationHelper.ThrowValidationExceptionIfNotValid(deus);
-
-            return this.godService.Create(deus);
+            return Ok(this.godService.Create(deus));
         }
 
         [HttpPut("UpdateGod")]
         public void UpdateGord(God deus)
         {
-            ValidationHelper.ThrowValidationExceptionIfNotValid(deus);
-
             this.godService.Update(deus);
         }
 

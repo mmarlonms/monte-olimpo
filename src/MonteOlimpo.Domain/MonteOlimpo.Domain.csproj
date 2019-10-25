@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="FluentValidation.AspNetCore" Version="8.5.0" />
     <PackageReference Include="MonteOlimpo.Base.Core.DataAnnotations" Version="1.0.4" />
     <PackageReference Include="MonteOlimpo.Base.Core.Domain" Version="1.0.5" />
     <PackageReference Include="MonteOlimpo.Base.Core.Specification" Version="1.0.4" />
