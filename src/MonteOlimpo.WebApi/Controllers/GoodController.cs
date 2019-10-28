@@ -12,6 +12,7 @@ using System.Linq;
 
 namespace MonteOlimpo.WebApi.Controllers
 {
+    [Authorize]
     [ApiController]
     public class GodController : ApiBaseController
     {
@@ -30,7 +31,6 @@ namespace MonteOlimpo.WebApi.Controllers
             return this.godService.GetAll().ToList();
         }
 
-        [Authorize]
         [HttpGet("GetGod/{id}")]
         public God GetGod(int id)
         {
