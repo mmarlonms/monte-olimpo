@@ -37,10 +37,10 @@ namespace MonteOlimpo.WebApi
             services.RegisterMonteOlimpoDataBase<MonteOlimpoContext>(Configuration);
         }
 
-        public override void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public override void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             app.UseCors(option => option.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
-            app.UseAuthentication();
+            app.UseAuthentication(); 
             base.Configure(app, env);
         }
 

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.489
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29709.97
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MonteOlimpo.WebApi", "MonteOlimpo.WebApi\MonteOlimpo.WebApi.csproj", "{899D01C7-F1BB-487D-8ECD-A7C505EA508A}"
 EndProject

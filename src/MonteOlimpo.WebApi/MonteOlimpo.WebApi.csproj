@@ -1,28 +1,28 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
     <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
     <DockerDefaultTargetOS>Windows</DockerDefaultTargetOS>
     <UserSecretsId>d362481f-1a67-48d8-9760-7994a497d5d5</UserSecretsId>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>N:\Projetos\GitHub\monte-olimpo\src\MonteOlimpo.WebApi\MonteOlimpo.WebApi.xml</DocumentationFile>
+    <DocumentationFile>G:\Projetos\GitHub\monte-olimpo\src\MonteOlimpo.WebApi\MonteOlimpo.WebApi.xml</DocumentationFile>
     <NoWarn>1701;1702;CS1591</NoWarn>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="FluentValidation.AspNetCore" Version="8.5.0" />
+    <PackageReference Include="FluentValidation.AspNetCore" Version="8.6.1" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
-    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.9.5" />
-    <PackageReference Include="MonteOlimpo.Base.ApiBoot" Version="1.0.11" />
-    <PackageReference Include="MonteOlimpo.Base.Authentication" Version="1.0.1" />
-    <PackageReference Include="MonteOlimpo.Base.Core.CrossCutting" Version="1.0.2" />
-    <PackageReference Include="MonteOlimpo.Base.Core.Validations" Version="1.0.1" />
-    <PackageReference Include="MonteOlimpo.Base.Extensions" Version="1.0.4" />
-    <PackageReference Include="Serilog.Sinks.ElasticSearch" Version="8.0.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.9.10" />
+    <PackageReference Include="MonteOlimpo.Base.ApiBoot" Version="3.0.2" />
+    <PackageReference Include="MonteOlimpo.Base.Authentication" Version="3.0.1" />
+    <PackageReference Include="MonteOlimpo.Base.Core.CrossCutting" Version="3.0.2" />
+    <PackageReference Include="MonteOlimpo.Base.Core.Validations" Version="3.0.1" />
+    <PackageReference Include="MonteOlimpo.Base.Extensions" Version="2.0.3" />
+    <PackageReference Include="Serilog.Sinks.ElasticSearch" Version="8.0.1" />
   </ItemGroup>
 
   <ItemGroup>

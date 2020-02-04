@@ -1,11 +1,11 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MonteOlimpo.Base.Core.Data" Version="1.0.5" />
+    <PackageReference Include="MonteOlimpo.Base.Core.Data" Version="3.0.5" />
   </ItemGroup>
 
   <ItemGroup>

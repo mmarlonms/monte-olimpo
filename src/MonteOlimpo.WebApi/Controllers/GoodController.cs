@@ -12,7 +12,7 @@ using System.Linq;
 
 namespace MonteOlimpo.WebApi.Controllers
 {
-    [Authorize]
+    
     [ApiController]
     public class GodController : ApiBaseController
     {
