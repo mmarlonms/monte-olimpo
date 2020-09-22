@@ -12,10 +12,6 @@ namespace MonteOlimpo.Data
         {
         }
 
-        public MonteOlimpoContext()
-        {
-        }
-
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)

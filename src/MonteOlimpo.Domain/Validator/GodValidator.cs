@@ -10,7 +10,7 @@ namespace MonteOlimpo.Domain.Validator
             RuleFor(x => x.Id).NotNull();
             RuleFor(x => x.Nome).Length(0, 10);
             RuleFor(x => x.Idade).InclusiveBetween(18, 60);
-            RuleFor(x => x.Idade).InclusiveBetween(20,30);
+            RuleFor(x => x.Idade).InclusiveBetween(20, 30);
         }
     }
 }
