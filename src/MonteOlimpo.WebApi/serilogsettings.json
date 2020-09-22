@@ -1,23 +1,21 @@
 {
   "Serilog": {
-      "MinimumLevel": {
-        "Default": "Information",
-        "Override": {
-          "Microsoft": "Warning",
-          "System": "Warning"
-        }
-      },
-    "WriteTo": [
-      { "Name": "Console" },
-      {
-        "Name": "Elasticsearch",
-        "Args": {
-          "nodeUris": "https://bm74uaahi8:cb5i13mmcr@kajsbdisb-dfkbas-kdj-6551144548.ap-southeast-2.bonsaisearch.net:443",
-          "queueSizeLimit": "100000",
-          "autoRegisterTemplate": true,
-          "autoRegisterTemplateVersion": "ESv6"
-        }
+    "MinimumLevel": {
+      "Default": "Warning",
+      "Override": {
+        "Microsoft": "Error",
+        "System": "Error"
       }
-    ]
+    }
+  },
+  "ElasticConfiguration": {
+    "UseAuthentication": false,
+    "UrlHost": "http://localhost:9200",
+    "IndexName": "monteolimpo-api"
+  },
+  "LogConfiguration": {
+    "EnableLog": true,
+    "EnableLogConsole": true,
+    "EnableLogElasticSearch": true
   }
 }

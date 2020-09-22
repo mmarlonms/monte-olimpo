@@ -13,16 +13,17 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="FluentValidation.AspNetCore" Version="8.6.1" />
+    <PackageReference Include="FluentValidation.AspNetCore" Version="9.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
-    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.9.10" />
-    <PackageReference Include="MonteOlimpo.Base.ApiBoot" Version="3.0.2" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.10.8" />
+    <PackageReference Include="MonteOlimpo.Base.ApiBoot" Version="3.0.3" />
     <PackageReference Include="MonteOlimpo.Base.Authentication" Version="3.0.1" />
-    <PackageReference Include="MonteOlimpo.Base.Core.CrossCutting" Version="3.0.2" />
+    <PackageReference Include="MonteOlimpo.Base.Core.CrossCutting" Version="3.0.3" />
     <PackageReference Include="MonteOlimpo.Base.Core.Validations" Version="3.0.1" />
-    <PackageReference Include="MonteOlimpo.Base.Extensions" Version="2.0.3" />
-    <PackageReference Include="Serilog.Sinks.ElasticSearch" Version="8.0.1" />
+    <PackageReference Include="MonteOlimpo.Base.Extensions" Version="3.0.0" />
+    <PackageReference Include="MonteOlimpo.Base.Log" Version="3.0.0" />
+    <PackageReference Include="Serilog.Sinks.ElasticSearch" Version="8.4.0" />
   </ItemGroup>
 
   <ItemGroup>
