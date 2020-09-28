@@ -19,7 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MonteOlimpo.Data\MonteOlimpo.Data.csproj" />
+    <ProjectReference Include="..\MonteOlimpo.Data.Teste\MonteOlimpo.Data.csproj" />
     <ProjectReference Include="..\MonteOlimpo.Repository\MonteOlimpo.Repository.csproj" />
     <ProjectReference Include="..\MonteOlimpo.Service\MonteOlimpo.Service.csproj" />
   </ItemGroup>

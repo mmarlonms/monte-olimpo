@@ -6,8 +6,6 @@ using MonteOlimpo.Base.ApiBoot;
 using MonteOlimpo.Base.Core.CrossCutting;
 using MonteOlimpo.Data;
 using MonteOlimpo.Domain.Validator;
-using MonteOlimpo.Repository;
-using MonteOlimpo.Service;
 using System;
 using System.Collections.Generic;
 using System.Reflection;
